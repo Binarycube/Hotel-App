@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/app_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Options">
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Order Food"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_primary"
+        app:layout_constraintBottom_toTopOf="@+id/viewBill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/viewBill"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="View Bill"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_success"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/callWaiter"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_danger"
+        android:text="Call Waiter"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBill" />
+</androidx.constraintlayout.widget.ConstraintLayout>
