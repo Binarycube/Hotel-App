@@ -10,5 +10,6 @@
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"/>
+        android:layout_margin="30dp">
+    </ExpandableListView>
 </androidx.constraintlayout.widget.ConstraintLayout>
