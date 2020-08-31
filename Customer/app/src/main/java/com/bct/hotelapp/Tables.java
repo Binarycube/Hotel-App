@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,7 +33,13 @@ public class Tables extends AppCompatActivity {
         mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Tables.this, roomlist.get(position)+"", Toast.LENGTH_SHORT).show();
+                String name=roomlist.get(position);
+                Toast.makeText(Tables.this, name+"", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString("value",name);
+                Intent intent = new Intent(Tables.this, RoomTemplate.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
