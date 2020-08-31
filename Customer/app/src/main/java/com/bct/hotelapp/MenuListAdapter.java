@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -15,6 +16,10 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> listDataHeader;
     private HashMap<String,List<String>> listHashMap;
+    private Button add;
+    private Button sub;
+    private TextView quantity;
+    private int curr_qty;
 
     public MenuListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listHashMap) {
         this.context = context;
@@ -81,6 +86,26 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
         }
         TextView listchild = (TextView) convertView.findViewById(R.id.listitem);
         listchild.setText(childText);
+        add = (Button) convertView.findViewById(R.id.addBtn);
+        sub = (Button) convertView.findViewById(R.id.subBtn);
+        quantity = (TextView) convertView.findViewById(R.id.quantity);
+        curr_qty = Integer.parseInt(quantity.getText().toString());
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (curr_qty > 0) {
+                    quantity.setText(String.valueOf(curr_qty + 1));
+                }
+            }
+        });
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (curr_qty > 0) {
+                    quantity.setText(String.valueOf(curr_qty - 1));
+                }
+            }
+        });
         return convertView;
     }
 

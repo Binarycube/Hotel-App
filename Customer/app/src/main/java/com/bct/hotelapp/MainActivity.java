@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.equals("test") && password.equals("test")){
+                if(username.getText().toString().equals("test") && password.getText().toString().equals("test")){
                     Intent intent = new Intent(MainActivity.this, OrderMenu.class);
                     String message = username.getText().toString();
                     intent.putExtra(EXTRA_MESSAGE, message);
