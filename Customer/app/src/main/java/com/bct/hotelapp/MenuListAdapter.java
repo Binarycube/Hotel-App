@@ -7,21 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.BreakIterator;
 import java.util.HashMap;
 import java.util.List;
 
 public class MenuListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> listDataHeader;
-    private HashMap<String,List<String>> listHashMap;
-    private Button add;
-    private Button sub;
-    private TextView quantity;
+    private HashMap<String,List<BillModel>> listHashMap;
+    //private Button add;
+    //private Button sub;
+    //private EditText quantity;
     private int curr_qty;
 
-    public MenuListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<String>> listHashMap) {
+    public MenuListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<BillModel>> listHashMap) {
         this.context = context;
         this.listDataHeader = listDataHeader;
         this.listHashMap = listHashMap;
@@ -68,7 +71,6 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater)this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_group,null);
-
         }
         TextView listheader = (TextView) convertView.findViewById(R.id.listheader);
         listheader.setTypeface(null, Typeface.BOLD);
@@ -78,31 +80,39 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String childText = (String) getChild(groupPosition,childPosition);
+        final BillModel itemModel = (BillModel) getChild(groupPosition,childPosition);
+        final String childText = itemModel.getItemName()+" (Rs."+String.valueOf(itemModel.getPrice())+")";
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater)this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_item,null);
-
         }
         TextView listchild = (TextView) convertView.findViewById(R.id.listitem);
         listchild.setText(childText);
-        add = (Button) convertView.findViewById(R.id.addBtn);
-        sub = (Button) convertView.findViewById(R.id.subBtn);
-        quantity = (TextView) convertView.findViewById(R.id.quantity);
-        curr_qty = Integer.parseInt(quantity.getText().toString());
+        final Button add = (Button) convertView.findViewById(R.id.addBtn);
+        final Button sub = (Button) convertView.findViewById(R.id.subBtn);
+        final TextView quantity = (TextView) convertView.findViewById(R.id.quantity);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (curr_qty > 0) {
-                    quantity.setText(String.valueOf(curr_qty + 1));
+                curr_qty = itemModel.getQuantity();
+                if (curr_qty >= 0) {
+                    itemModel.setQuantity(itemModel.getQuantity()+1);
+                    quantity.setText(String.valueOf(itemModel.getQuantity()));
+                    //Toast.makeText(context.getApplicationContext(), "Item Added :" + childText + String.valueOf(curr_qty + 1) , Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
                 }
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                curr_qty = itemModel.getQuantity();
                 if (curr_qty > 0) {
-                    quantity.setText(String.valueOf(curr_qty - 1));
+                    itemModel.setQuantity(itemModel.getQuantity()-1);
+                    quantity.setText(String.valueOf(itemModel.getQuantity()));
+                    //Toast.makeText(context.getApplicationContext(), "Item Removed :" + childText + String.valueOf(curr_qty + 1) , Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
                 }
             }
         });
