@@ -17,7 +17,7 @@ public class OrderMenu extends AppCompatActivity {
     private ExpandableListView foodmenu;
     private MenuListAdapter listAdapater;
     private List<String> listDataHeader;
-    private HashMap<String,List<String>> listHashMap;
+    private HashMap<String,List<BillModel>> listHashMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,29 +37,29 @@ public class OrderMenu extends AppCompatActivity {
         listDataHeader.add("Main Course");
         listDataHeader.add("Biriyani");
 
-        List<String> breakfast = new ArrayList<>();
-        breakfast.add("Idly (Rs.10)");
-        breakfast.add("Dosai (Rs.30)");
-        breakfast.add("Pongal (Rs.30)");
-        breakfast.add("Poori (Rs.20)");
+        List<BillModel> breakfast = new ArrayList<>();
+        breakfast.add(new BillModel("Idly", 10.00, 0));
+        breakfast.add(new BillModel("Dosai", 30.00, 0));
+        breakfast.add(new BillModel("Pongal", 30.00, 0));
+        breakfast.add(new BillModel("Poori", 20.00, 0));
 
-        List<String> starter = new ArrayList<>();
-        starter.add("Chilli Chicken (Rs.120)");
-        starter.add("Chicken 65 (Rs.120)");
-        starter.add("Mutton Pepper Fry (Rs.180)");
-        starter.add("Mutton Keema Balls (Rs.190)");
+        List<BillModel> starter = new ArrayList<>();
+        starter.add(new BillModel("Chilli Chicken", 120.00, 0));
+        starter.add(new BillModel("Chicken 65", 120.00, 0));
+        starter.add(new BillModel("Mutton Pepper Fry", 180.00, 0));
+        starter.add(new BillModel("Mutton Keema Balls", 190.00, 0));
 
-        List<String> course = new ArrayList<>();
-        course.add("Chicken Masala (Rs.120)");
-        course.add("Butter Chicken (Rs.130)");
-        course.add("Garlic Chicken (Rs.130)");
-        course.add("Mutton Masala (Rs.210)");
+        List<BillModel> course = new ArrayList<>();
+        course.add(new BillModel("Chicken Masala", 120.00, 0));
+        course.add(new BillModel("Butter Masala", 130.00, 0));
+        course.add(new BillModel("Garlic Masala", 130.00, 0));
+        course.add(new BillModel("Mutton Masala", 210.00, 0));
 
-        List<String> biriyani = new ArrayList<>();
-        biriyani.add("Plain Biriyani (Rs.120)");
-        biriyani.add("Egg Biriyani (Rs.130)");
-        biriyani.add("Chicken Biriyani (Rs.150)");
-        biriyani.add("Mutton Biriyani (Rs.200)");
+        List<BillModel> biriyani = new ArrayList<>();
+        biriyani.add(new BillModel("Plain Biriyani", 120.00, 0));
+        biriyani.add(new BillModel("Egg Biriyani", 130.00, 0));
+        biriyani.add(new BillModel("Chicken Biriyani", 150.00, 0));
+        biriyani.add(new BillModel("Mutton Biriyani", 200.00, 0));
 
         listHashMap.put(listDataHeader.get(0),breakfast);
         listHashMap.put(listDataHeader.get(1),starter);
