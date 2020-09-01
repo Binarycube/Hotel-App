@@ -2,10 +2,12 @@ package com.bct.hotelapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -13,20 +15,45 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.bct.hotelapp.MainActivity.EXTRA_MESSAGE;
+
 public class OrderMenu extends AppCompatActivity {
     private ExpandableListView foodmenu;
     private MenuListAdapter listAdapater;
     private List<String> listDataHeader;
     private HashMap<String,List<BillModel>> listHashMap;
+    private Button cancelBtn;
+    private Button placeBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
 
+        cancelBtn = (Button) findViewById(R.id.cancelBtn);
+        placeBtn = (Button) findViewById(R.id.placeBtn);
+
         foodmenu = (ExpandableListView) findViewById(R.id.foodmenu);
         initData();
         listAdapater = new MenuListAdapter(this,listDataHeader,listHashMap);
         foodmenu.setAdapter(listAdapater);
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(OrderMenu.this, Options.class);
+                    startActivity(intent);
+            }
+        });
+
+        placeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(OrderMenu.this, PlaceOrder.class);
+                    //intent.putExtra(EXTRA_MESSAGE, listAdapater);
+                    startActivity(intent);
+            }
+        });
     }
 
     private void initData() {

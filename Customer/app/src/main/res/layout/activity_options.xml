@@ -8,7 +8,7 @@
     tools:context=".Options">
 
     <Button
-        android:id="@+id/order"
+        android:id="@+id/orderMenu"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
