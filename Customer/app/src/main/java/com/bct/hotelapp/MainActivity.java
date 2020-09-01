@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(username.getText().toString().equals("test") && password.getText().toString().equals("test")){
-                    Intent intent = new Intent(MainActivity.this, OrderMenu.class);
+                    Intent intent = new Intent(MainActivity.this, Tables.class);
                     String message = username.getText().toString();
                     intent.putExtra(EXTRA_MESSAGE, message);
                     startActivity(intent);
