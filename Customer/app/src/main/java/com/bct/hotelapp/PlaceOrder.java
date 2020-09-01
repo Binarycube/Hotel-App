@@ -17,7 +17,7 @@ public class PlaceOrder extends AppCompatActivity {
         setContentView(R.layout.activity_place_order);
 
         cancelBtn = (Button) findViewById(R.id.cancelBtn);
-        confirmBtn = (Button) findViewById(R.id.placeBtn);
+        confirmBtn = (Button) findViewById(R.id.confirmBtn);
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
