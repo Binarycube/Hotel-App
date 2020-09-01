@@ -38,28 +38,28 @@ public class OrderMenu extends AppCompatActivity {
         listDataHeader.add("Biriyani");
 
         List<BillModel> breakfast = new ArrayList<>();
-        breakfast.add(new BillModel("Idly", 10.00, 0));
-        breakfast.add(new BillModel("Dosai", 30.00, 0));
-        breakfast.add(new BillModel("Pongal", 30.00, 0));
-        breakfast.add(new BillModel("Poori", 20.00, 0));
+        breakfast.add(new BillModel(0,"Idly", 10.00, 0));
+        breakfast.add(new BillModel(0,"Dosai", 30.00, 0));
+        breakfast.add(new BillModel(0,"Pongal", 30.00, 0));
+        breakfast.add(new BillModel(0,"Poori", 20.00, 0));
 
         List<BillModel> starter = new ArrayList<>();
-        starter.add(new BillModel("Chilli Chicken", 120.00, 0));
-        starter.add(new BillModel("Chicken 65", 120.00, 0));
-        starter.add(new BillModel("Mutton Pepper Fry", 180.00, 0));
-        starter.add(new BillModel("Mutton Keema Balls", 190.00, 0));
+        starter.add(new BillModel(0,"Chilli Chicken", 120.00, 0));
+        starter.add(new BillModel(0,"Chicken 65", 120.00, 0));
+        starter.add(new BillModel(0,"Mutton Pepper Fry", 180.00, 0));
+        starter.add(new BillModel(0,"Mutton Keema Balls", 190.00, 0));
 
         List<BillModel> course = new ArrayList<>();
-        course.add(new BillModel("Chicken Masala", 120.00, 0));
-        course.add(new BillModel("Butter Masala", 130.00, 0));
-        course.add(new BillModel("Garlic Masala", 130.00, 0));
-        course.add(new BillModel("Mutton Masala", 210.00, 0));
+        course.add(new BillModel(0,"Chicken Masala", 120.00, 0));
+        course.add(new BillModel(0,"Butter Masala", 130.00, 0));
+        course.add(new BillModel(0,"Garlic Masala", 130.00, 0));
+        course.add(new BillModel(0,"Mutton Masala", 210.00, 0));
 
         List<BillModel> biriyani = new ArrayList<>();
-        biriyani.add(new BillModel("Plain Biriyani", 120.00, 0));
-        biriyani.add(new BillModel("Egg Biriyani", 130.00, 0));
-        biriyani.add(new BillModel("Chicken Biriyani", 150.00, 0));
-        biriyani.add(new BillModel("Mutton Biriyani", 200.00, 0));
+        biriyani.add(new BillModel(0,"Plain Biriyani", 120.00, 0));
+        biriyani.add(new BillModel(0,"Egg Biriyani", 130.00, 0));
+        biriyani.add(new BillModel(0,"Chicken Biriyani", 150.00, 0));
+        biriyani.add(new BillModel(0,"Mutton Biriyani", 200.00, 0));
 
         listHashMap.put(listDataHeader.get(0),breakfast);
         listHashMap.put(listDataHeader.get(1),starter);
